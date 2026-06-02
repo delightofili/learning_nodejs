@@ -1,5 +1,6 @@
 {
   "name": "learning-nodejs",
+  "type": "module",
   "version": "1.0.0",
   "description": "my nodeJs learning journey",
   "main": "app.js",
