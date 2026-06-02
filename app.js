@@ -29,7 +29,7 @@ const anotherServer = http.createServer((req, res) => {
     req.on("end", () => {
       const parsedBody = Buffer.concat(body).toString();
       console.log(parsedBody);
-      const message = parsedBody.split("=")[1];
+      const message = parsedBody.split("=")[0];
       res.write("<html><body><h1>Welcome " + message + "</body></html>");
       console.log(message);
       return res.end();
