@@ -20,13 +20,14 @@ const server = http.createServer((req, res) => {
       console.log(chunk);
       body.push(chunk);
     });
-    req.on("end", () => {
+    return req.on("end", () => {
       const parsedBody = Buffer.concat(body).toString();
       const message = parsedBody.split("=")[1];
-      fs.writeFileSync("amess.txt", message);
+      fs.writeFile("amess.txt", message, (err) => {
+        res.writeHead(302, { location: "/" }); //or same with res.statusCode = 302; res.setHeader("location", "/")
+        return res.end();
+      });
     });
-    res.writeHead(302, { location: "/" }); //or same with res.statusCode = 302; res.setHeader("location", "/")
-    return res.end();
   }
 
   res.setHeader("Content-Type", "text/html");
