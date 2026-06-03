@@ -21,7 +21,7 @@ const requestHandler = (req, res) => {
     });
     return req.on("end", () => {
       const parsedBody = Buffer.concat(body).toString();
-      const message = parsedBody.split("=")[0];
+      const message = parsedBody.split("=")[1];
       fs.writeFile("amess.txt", message, (err) => {
         res.writeHead(302, { location: "/" }); //or same with res.statusCode = 302; res.setHeader("location", "/")
         return res.end();
