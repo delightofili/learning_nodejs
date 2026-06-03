@@ -1,9 +1,16 @@
 import express from "express";
+import path from "path";
 
 const router = express.Router();
 
 router.get("/", (req, res, next) => {
-  res.send("<h1>Hello Hello World!  (from Express)</h1>");
+  const filePath = path.resolve(
+    import.meta.dirname,
+    "../",
+    "views",
+    "shop.html",
+  );
+  res.sendFile(filePath);
 });
 
 export default router;
