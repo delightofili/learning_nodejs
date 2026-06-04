@@ -17,8 +17,7 @@ app.use(shopRoutes);
 app.use("/admin", routes);
 
 app.use((req, res, next) => {
-  const filePath = path.resolve(import.meta.dirname, "views", "404.html");
-  res.status(404).sendFile(filePath);
+  res.status(404).render("404", { pageTitle: "Page Not Found" });
 });
 
 app.listen(3000);
