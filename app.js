@@ -3,15 +3,10 @@ import bodyParser from "body-parser";
 import shopRoutes from "./routes/shop.js";
 import path from "path";
 import { routes } from "./routes/admin.js";
-import expressHbs from "express-handlebars";
 
 const app = express();
 
-app.engine(
-  "handlebars",
-  expressHbs({ layoutsDir: "views/layouts", defaultLayout: "main-layout" }),
-);
-app.set("view engine", "handlebars");
+app.set("view engine", "ejs");
 app.set("views", "views");
 
 app.use(bodyParser.urlencoded({ extended: false }));
