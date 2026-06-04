@@ -3,6 +3,7 @@ import bodyParser from "body-parser";
 import shopRoutes from "./routes/shop.js";
 import path from "path";
 import { routes } from "./routes/admin.js";
+import expressHbs from "express-handlebars";
 
 const app = express();
 
