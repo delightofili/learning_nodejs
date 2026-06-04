@@ -7,6 +7,8 @@ import path from "path";
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 
+app.use(express.static(path.join(import.meta.dirname, "public")));
+
 app.use(shopRoutes);
 app.use("/admin", adminRoutes);
 

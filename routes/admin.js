@@ -1,15 +1,11 @@
 import express from "express";
 import path from "path";
+import rootDir from "../util/path.js";
 
 const router = express.Router();
 
 router.get("/add-product", (req, res, next) => {
-  const filePath = path.resolve(
-    import.meta.dirname,
-    "../",
-    "views",
-    "add-product.html",
-  );
+  const filePath = path.resolve(rootDir, "views", "add-product.html");
 
   res.sendFile(filePath);
 });
