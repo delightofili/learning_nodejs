@@ -5,14 +5,8 @@ import { products } from "../routes/admin.js";
 const router = express.Router();
 
 router.get("/", (req, res, next) => {
-  const filePath = path.resolve(
-    import.meta.dirname,
-    "../",
-    "views",
-    "shop.html",
-  );
+  res.render("shop");
   console.log(products);
-  res.sendFile(filePath);
 });
 
 export default router;
