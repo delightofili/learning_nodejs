@@ -1,8 +1,8 @@
 import express from "express";
 import bodyParser from "body-parser";
-import adminRoutes from "./routes/admin.js";
 import shopRoutes from "./routes/shop.js";
 import path from "path";
+import { routes } from "./routes/admin.js";
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(import.meta.dirname, "public")));
 
 app.use(shopRoutes);
-app.use("/admin", adminRoutes);
+app.use("/admin", routes);
 
 app.use((req, res, next) => {
   const filePath = path.resolve(import.meta.dirname, "views", "404.html");
